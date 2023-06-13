@@ -15,22 +15,23 @@ string clientSeed = string.Empty;
 
 await Init();
 
-var userChoice = -1;
+var userChoice = 0;
 
 do
 {
     await PrintMasterMenuAsync();
-    userChoice = int.Parse(Console.ReadLine());
+    _ = int.TryParse(Console.ReadLine(), out userChoice);
+
     var task = userChoice switch
     {
-        1 => RollAsync(),
-        0 => Task.CompletedTask,
+        0 => RollAsync(),
+        1 => Task.CompletedTask,
         _ => throw new NotImplementedException()
     };
 
     await task;
 }
-while (userChoice > 0);
+while (userChoice == 0);
 
 
 async Task Init()
@@ -97,7 +98,7 @@ async Task PrintMasterMenuAsync()
     Console.WriteLine($"Hi {userName}!");
     Console.WriteLine($"Your client seed is: {clientSeed} ");
     Console.WriteLine();
-    Console.WriteLine($"1. ROLL");
-    Console.WriteLine($"0. EXIT");
-    Console.Write($"Type a number to continue: ");
+    Console.WriteLine($"0 or Enter. ROLL");
+    Console.WriteLine($"1. EXIT");
+    Console.Write($"Choose an option to continue: ");
 }
