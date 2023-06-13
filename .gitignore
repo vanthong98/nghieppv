@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/src/nghieppv-service/.idea
+/src/nghieppv-service/.vs/nghieppv-service
+/src/nghieppv-service/nghieppv-service.sln.DotSettings.user
+/src/nghieppv-service/Nghiep188.Api/Nghiep188.Api.csproj.user
+/src/nghieppv-service/Nghiep188.Api/obj
+/src/nghieppv-service/Nghiep188.Api/bin/Debug/net7.0
