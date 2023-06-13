@@ -36,6 +36,7 @@ public class UserService
     public Task<List<ServerSeed>> GetServerSeedsAsync(string userName)
     {
         return _dbContext.ServerSeeds
+            .AsNoTracking()
             .Include(x => x.User)
             .OrderByDescending(x => x.CreatedDate)
             .Where(x => x.User!.UserName == userName)
